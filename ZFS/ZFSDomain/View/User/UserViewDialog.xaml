@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="ZFSDomain.View.User.UserViewDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZFSDomain.View.User"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+          xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:Convert="clr-namespace:ZFSDomain.Common.Converts"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:domain="clr-namespace:ZFSDomain.Common.ValidationRules;assembly=Library"
+             mc:Ignorable="d" Width="650" Height="580">
+    <UserControl.Resources>
+        <Convert:NumberConverter x:Key="NumberConverter"/>
+    </UserControl.Resources>
+    <Grid >
+        <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Grid Background="#1E90FF">
+                    <materialDesign:ColorZone  Padding="40" Mode="PrimaryMid"/>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountEdit" Width="20" Height="20" VerticalAlignment="Center"  Foreground="White" Margin="5 0 0 0"/>
+                        <TextBlock Text="{Binding Title}" FontSize="12" Foreground="White" VerticalAlignment="Center" Margin="5 0 0 0" />
+                    </StackPanel>
+
+                    <TextBlock Text="&#xe606;"  HorizontalAlignment="Right" Margin="0 0 5 0" VerticalAlignment="Center" Style="{StaticResource ResourceKey=TextBlockStyle}">
+                     <i:Interaction.Triggers>
+                           <i:EventTrigger EventName="MouseLeftButtonDown">
+                                  <i:InvokeCommandAction Command="{x:Static wpf:DialogHost.CloseDialogCommand}">
+                                      <i:InvokeCommandAction.CommandParameter>
+                                            <system:Boolean>false</system:Boolean>
+                                      </i:InvokeCommandAction.CommandParameter>
+                                  </i:InvokeCommandAction>
+                    </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    </TextBlock>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="15">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.RowSpan="2" BorderBrush="#E3E3E3" BorderThickness="1" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Source="/Common/Image/tx.png" Stretch="Uniform" Margin="15 15 15 3"/>
+                                <Border Grid.Row="1"  Background="#20B2AA">
+                                    <TextBlock Text="点击上传头像" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                                </Border>
+                            </Grid>
+
+                        </Border>
+
+                        <TextBox Grid.Column="1" Margin="30 5 5 5" BorderBrush="Transparent"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Height="60" AcceptsReturn="True" TextWrapping="Wrap" 
+                                 materialDesign:HintAssist.Hint="用户名 *">
+                            <TextBox.Text>
+                                <Binding Path="User.UserName"  UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True"   />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="30 5 5 5" BorderBrush="Transparent" VerticalAlignment="Center" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="60"  AcceptsReturn="True" TextWrapping="Wrap" 
+                                 materialDesign:HintAssist.Hint="登录名 *"   >
+                            <TextBox.Text>
+                                <Binding Path="User.Account"  UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <TextBox Grid.Row="2" Grid.ColumnSpan="2" Margin="5" BorderBrush="Transparent" VerticalAlignment="Center" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="60" AcceptsReturn="True" 
+                                 TextWrapping="Wrap"  materialDesign:HintAssist.Hint="电子邮件地址" Text="{Binding User.Email}" />
+
+                        <TextBox Grid.Row="3" Grid.ColumnSpan="2" Margin="5" BorderBrush="Transparent" VerticalAlignment="Center" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="60" AcceptsReturn="True" 
+                                 TextWrapping="Wrap"  materialDesign:HintAssist.Hint="联系电话 *"   >
+                            <TextBox.Text>
+                                <Binding Path="User.Tel"  UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <TextBox Grid.Row="4" Grid.ColumnSpan="2" Margin="5" BorderBrush="Transparent"  VerticalAlignment="Center" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="60" AcceptsReturn="True" 
+                                 TextWrapping="Wrap"  materialDesign:HintAssist.Hint="现居住址" Text="{Binding User.Address}"  />
+
+                        <TextBox Grid.Row="5" Grid.ColumnSpan="2" Margin="5" BorderBrush="Transparent" VerticalAlignment="Center" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="60" AcceptsReturn="True" 
+                                 TextWrapping="Wrap"  materialDesign:HintAssist.Hint="用户密码 *"  >
+                            <TextBox.Text>
+                                <Binding Path="User.Password"  UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <CheckBox  Grid.Row="6" Grid.ColumnSpan="2" Height="30" Content="启用账户锁定" Foreground="DimGray" 
+                                   FontSize="15" IsChecked="{Binding User.IsLocked,Converter={StaticResource NumberConverter}}"/>
+
+                    </Grid>
+                </Grid>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 20 0">
+                    <Button Style="{StaticResource ResourceKey=SimpleButtonStyle}" 
+                            Background="#EDEDED" BorderBrush="#EDEDED" Foreground="Black" 
+                            HorizontalAlignment="Center" Content="取消" IsCancel="True" Command="{x:Static wpf:DialogHost.CloseDialogCommand}" >
+                        <Button.CommandParameter>
+                            <system:Boolean>False</system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                    <Button  Style="{StaticResource ResourceKey=SimpleButtonStyle}"  IsDefault="True"
+                             Content="确定" Command="{x:Static wpf:DialogHost.CloseDialogCommand}">
+                        <Button.CommandParameter>
+                            <system:Boolean>True</system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+            </Grid>
+    </Grid>
+</UserControl>

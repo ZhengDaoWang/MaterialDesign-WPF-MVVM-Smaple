@@ -1,0 +1,38 @@
+﻿<Window x:Class="ZFSDomain.Common.UserControls.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZFSDomain.Common.UserControls"
+        mc:Ignorable="d"  Height="450" Width="600"   WindowStyle="None" 
+        Topmost="True"   WindowState="Maximized"
+         WindowStartupLocation="CenterScreen" AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="15" Color="#FF858484" Direction="90" ShadowDepth="1"/>
+    </Window.Effect>
+    <Grid>
+        
+        <Border Height="450" Width="550" Background="White">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush  ImageSource="/Common/Image/SampleOne.jpg" Stretch="UniformToFill" />
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="关于作者" Margin="5" Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center"/>
+                <TextBlock Text="&#xe606;"  VerticalAlignment="Center"
+                           Style="{StaticResource ResourceKey=TextBlockStyle}" Margin="0 5 5 0" 
+                           MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="ZFS.Framework" HorizontalAlignment="Center" FontFamily="雅黑"  FontSize="26" Foreground="#FFFFFF" Margin="3"/>
+                    <TextBlock Text="作者：痕迹gg" HorizontalAlignment="Center" Foreground="#FFFFFF" FontFamily="雅黑"  FontSize="26" Margin="3"/>
+                    <TextBlock Text="QQ：779149549" FontWeight="Light" Foreground="#FFFFFF" HorizontalAlignment="Center" FontFamily="雅黑"  FontSize="26" Margin="3"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

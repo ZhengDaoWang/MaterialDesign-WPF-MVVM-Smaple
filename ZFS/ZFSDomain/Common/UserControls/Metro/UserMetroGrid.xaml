@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="ZFSDomain.Common.UserControls.Metro.UserMetroGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:ZFSDomain.Common.UserControls.Metro"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" >
+    <Grid>
+        <ScrollViewer Template="{StaticResource MyScrollViewer}" FocusVisualStyle="{x:Null}" >
+            <ItemsControl ItemsSource="{Binding GridModelList}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4" Rows="4" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource SusBorder}" Margin="3" CornerRadius="3" BorderThickness="2">
+                            <!--双击编辑-->
+                            <Border.InputBindings>
+                                <MouseBinding MouseAction="LeftDoubleClick"  
+                                   CommandParameter="{Binding}" Command="{Binding DataContext.EditCommand, 
+                                    RelativeSource={RelativeSource Mode=FindAncestor, 
+                                    AncestorType=ItemsControl}}"/>
+                            </Border.InputBindings>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="1.1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox  materialDesign:HintAssist.Hint="用户名 *" Text="{Binding UserName}"  IsReadOnly="True"
+                                          BorderBrush="Transparent" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             VerticalAlignment="Center"  HorizontalContentAlignment="Left" />
+                                <TextBox materialDesign:HintAssist.Hint="登录名 *" Text="{Binding Account}" IsReadOnly="True"
+                                         Grid.Column="1"  BorderBrush="Transparent"  
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             VerticalAlignment="Center"  HorizontalContentAlignment="Left"/>
+                                <TextBox  materialDesign:HintAssist.Hint="地址 " Text="{Binding Address}" IsReadOnly="True"
+                                          Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Transparent" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             VerticalAlignment="Center"  HorizontalContentAlignment="Left"/>
+                                <TextBox materialDesign:HintAssist.Hint="电话 " Text="{Binding Tel}"  IsReadOnly="True"
+                                         Grid.Row="2" BorderBrush="Transparent" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             VerticalAlignment="Center"  HorizontalContentAlignment="Left" />
+                                <TextBox materialDesign:HintAssist.Hint="邮箱 " Text="{Binding Email}"  IsReadOnly="True"
+                                         Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Transparent" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             VerticalAlignment="Center"  HorizontalContentAlignment="Left"/>
+
+                                <StackPanel Grid.Row="0" Grid.Column="2"  Grid.RowSpan="2" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5 0 0">
+                                        <TextBlock FontSize="18" Style="{StaticResource ResourceKey=TextBlockStyle}" Text="&#xe629;" >
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <i:InvokeCommandAction    CommandParameter="{Binding}"  Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="18"  Style="{StaticResource ResourceKey=TextBlockStyle}" Text="&#xe600;" Margin="8 0 0 0" >
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                    <i:InvokeCommandAction   CommandParameter="{Binding}" Command="{Binding DataContext.DelCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}"/>
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <Image Source="/Common/Image/tx.png" Stretch="Uniform" Margin="0 5 0 0" Width="80" Height="80" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

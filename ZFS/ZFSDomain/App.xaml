@@ -1,0 +1,86 @@
+<Application x:Class="ZFSDomain.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:ZFSDomain" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:showMeTheXaml="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+             xmlns:smtxAe="clr-namespace:ShowMeTheXAML.AvalonEdit;assembly=ShowMeTheXAML.AvalonEdit"
+             
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TextBlock" x:Key="FiconBase">
+                <Setter Property="FontFamily" Value="/Common/Fonts/#iconfont"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Style>
+            
+            
+            <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="TextWrapping" Value="NoWrap"/>
+                <Setter Property="TextTrimming" Value="None"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontFamily" Value="/Common/Fonts/#iconfont"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Foreground" Value="Red"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="false">
+                        <Setter Property="Foreground" Value="#DBDBDB"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="NormalWinStyle" TargetType="{x:Type Window}">
+                <Setter Property="WindowStyle" Value="None" />
+                <Setter Property="AllowsTransparency" Value="True"/>
+                <Setter Property="Background" Value="{x:Null}"/>
+                <!--在Window中设置SnapsToDevicePixels属性值为True，子元素继承此值-->
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Window}">
+                            <Border Background="#FFFFFF" CornerRadius="3" Margin="{TemplateBinding Padding}">
+                                <!--设置窗体的阴影效果-->
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.75"/>
+                                </Border.Effect>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid></Grid>
+                                    <!--使用AdornerDecorator装饰ContentPresenter-->
+                                    <AdornerDecorator Grid.Row="1">
+                                        <ContentPresenter></ContentPresenter>
+                                    </AdornerDecorator>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--MaterialDesign组件-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Common/UserControls/Common/ExpanderDictionary.xaml" />
+                <ResourceDictionary Source="/Common/UserControls/Common/ButtonStyle.xaml" />
+                <ResourceDictionary Source="/Common/UserControls/Common/ScrollViewDictionary.xaml" />
+                <ResourceDictionary Source="/Common/UserControls/Common/BorderDictionary.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/ShowMeTheXAML.AvalonEdit;component/Themes/xamldisplayer.xaml" />
+
+              
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

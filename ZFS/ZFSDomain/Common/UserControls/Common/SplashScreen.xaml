@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="ZFSDomain.Common.UserControls.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZFSDomain.Common.UserControls"
+               xmlns:vc="clr-namespace:ZFSDomain.Common.Converts"
+        mc:Ignorable="d"
+         Background="Transparent" Width="240" Height="150">
+    <UserControl.Resources>
+        <vc:VisibilityConverter x:Key="vis"/>
+    </UserControl.Resources>
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="13" Color="#D9D9D9" Direction="0" ShadowDepth="1"/>
+    </UserControl.Effect>
+    <Grid>
+        <Border Width="220" Height="120" BorderThickness="1"  Background="#FFfafafa" Visibility="{Binding Manager.PaneliSHide,Converter={StaticResource vis}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="0" Width="40" IsIndeterminate="True"/>
+                <TextBlock Margin="0 35 0 0" 
+                           Text="{Binding Manager.WaitInfo}" 
+                           FontSize="12" 
+                           Foreground="#737373"
+                           FontFamily="幼圆"   />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

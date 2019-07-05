@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="ZFSDomain.Common.UserControls.MainLeftMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZFSDomain.Common.UserControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <AdornerDecorator CacheMode="{Binding (materialDesign:ShadowAssist.CacheMode), RelativeSource={RelativeSource Self}}">
+                                <Grid>
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="0">
+                                    </Border>
+                                    <Border Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Opacity="0.4">
+                                        <Border.Width>
+                                            <MultiBinding UpdateSourceTrigger="Default">
+                                                <MultiBinding.Converter>
+                                                    <Converters:RangeLengthConverter/>
+                                                </MultiBinding.Converter>
+                                                <Binding Path="(materialDesign:ButtonProgressAssist.Minimum)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                                <Binding Path="(materialDesign:ButtonProgressAssist.Maximum)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                                <Binding Path="(materialDesign:ButtonProgressAssist.Value)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ButtonBase}}"/>
+                                            </MultiBinding>
+                                        </Border.Width>
+                                    </Border>
+                                </Grid>
+                            </AdornerDecorator>
+                            <materialDesign:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="3 0 0 0"/>
+                                <Setter Property="BorderBrush" Value="#2196F3"/>
+                                <Setter Property="Background" Value="#F8F9FA"/>
+                                <Setter Property="Foreground" Value="#2196F3"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer Template="{StaticResource MyScrollViewer}" >
+            <ItemsControl ItemsSource="{Binding Path=ModuleManager.ModuleGroups}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Expander Header="{Binding GroupName}"  FocusVisualStyle="{x:Null}" 
+                              IsExpanded="True" Background="Transparent">
+                            <ItemsControl ItemsSource="{Binding Modules}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Name="node" Style="{DynamicResource ButtonStyle}" 
+                                            Command="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                            AncestorType={x:Type local:MainLeftMenu }},
+                                            Path=DataContext.ExcuteCommand,Mode=TwoWay}"   CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Margin="-35 0 0 0">
+                                                <materialDesign:PackIcon Kind="ChevronRight" Width="20" Height="20" Margin="0 0 5 0" />
+                                                <TextBlock Text="{Binding Name}" 
+                                                       FontSize="15" 
+                                                       Foreground="{Binding ElementName=node,Path=Foreground}"
+                                                       />
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Expander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

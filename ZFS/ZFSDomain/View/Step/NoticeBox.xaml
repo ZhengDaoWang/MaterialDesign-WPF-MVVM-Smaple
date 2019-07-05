@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="ZFSDomain.Common.UserControls.Common.NoticeBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZFSDomain.Common.UserControls.Common"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" 
+               xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+          xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             Width="750" Height="480">
+    <Grid>
+        <Grid Background="#FFfafafa" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Grid Background="#1E90FF">
+                    <materialDesign:ColorZone  Padding="40" Mode="PrimaryMid"/>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CommentAlertOutline" Width="20" Height="20" VerticalAlignment="Center"  Foreground="White" Margin="5 0 0 0"/>
+                        <TextBlock Text="通知中心" FontSize="12" Foreground="White" VerticalAlignment="Center" Margin="5 0 0 0" />
+                    </StackPanel>
+
+                <materialDesign:PackIcon Kind="Close" Width="20" Height="20" Margin="0 5 5 0"  HorizontalAlignment="Right"
+                                                     Foreground="White" VerticalAlignment="Center">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{x:Static wpf:DialogHost.CloseDialogCommand}">
+                                <i:InvokeCommandAction.CommandParameter>
+                                    <system:Boolean>false</system:Boolean>
+                                </i:InvokeCommandAction.CommandParameter>
+                            </i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </materialDesign:PackIcon>
+
+                </Grid>
+
+
+            </Grid>
+    </Grid>
+</UserControl>

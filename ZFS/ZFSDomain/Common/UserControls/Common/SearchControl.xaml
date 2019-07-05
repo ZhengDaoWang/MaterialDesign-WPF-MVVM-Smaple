@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ZFSDomain.Common.UserControls.SearchControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZFSDomain.Common.UserControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             Height="30">
+    <Grid>
+        <Border BorderBrush="#FF38C48C" BorderThickness="2" CornerRadius="10" />
+
+        <StackPanel Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" 
+                                     HorizontalAlignment="Left" Margin="5 0 0 0"
+                                     VerticalAlignment="Center" Foreground="#FF38C48C" />
+            <TextBox Margin="5 0 0 0" Text="{Binding SearchText}"  materialDesign:HintAssist.Hint="搜索菜单名" Width="100" BorderThickness="0" BorderBrush="Transparent" VerticalAlignment="Center"
+FontSize="14"  >
+                
+            </TextBox>
+            <TextBlock HorizontalAlignment="Right"  Cursor="Hand" Margin="5,0,5,0"  VerticalAlignment="Center" FontSize="15" Foreground="#FF38C48C" Text="搜索" >
+                  <i:Interaction.Triggers>
+                           <i:EventTrigger EventName="MouseLeftButtonDown">
+                                  <i:InvokeCommandAction Command="{Binding QueryCommand, Mode=OneWay}"/>
+                    </i:EventTrigger>
+                    </i:Interaction.Triggers>
+            </TextBlock>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

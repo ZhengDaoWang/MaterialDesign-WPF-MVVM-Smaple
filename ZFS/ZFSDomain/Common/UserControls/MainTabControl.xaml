@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="ZFSDomain.Common.UserControls.MainTabControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZFSDomain.Common.UserControls"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Width="auto" Height="auto" >
+    <UserControl.Resources>
+
+        <Style x:Key="TabBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Foreground" Value="#1E90FF"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="false">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid Name="GridTab">
+        <TabControl x:Name="MainTab" ItemsSource="{Binding OpenPageCollection}"  SelectedItem="{Binding CurrentPage}" BorderBrush="White">
+            <TabControl.Resources>
+                <Style x:Key="FocusVisual">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <LinearGradientBrush x:Key="TabItem.Static.Background" EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#F0F0F0" Offset="0.0"/>
+                    <GradientStop Color="#E5E5E5" Offset="1.0"/>
+                </LinearGradientBrush>
+                <SolidColorBrush x:Key="TabItem.Static.Border" Color="#ACACAC"/>
+                <LinearGradientBrush x:Key="TabItem.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#ECF4FC" Offset="0.0"/>
+                    <GradientStop Color="#DCECFC" Offset="1.0"/>
+                </LinearGradientBrush>
+                <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="#7EB4EA"/>
+                <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#F0F0F0"/>
+                <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9"/>
+                <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/>
+                <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabItem}">
+                                <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Width="80" Height="35" Margin="10 0 0 0">
+                                    <Border x:Name="mainBorder" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" Margin="0">
+                                        <Border x:Name="innerBorder" BorderBrush="{StaticResource TabItem.Selected.Border}" 
+                                        BorderThickness="1,1,1,0" 
+                                        Background="White" Margin="-1" Opacity="0"/>
+                                    </Border>
+                                    <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Margin="0 0 0 0" 
+                                              Focusable="False" VerticalAlignment="Center"
+                                              HorizontalAlignment="Left"  RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsSelected" Value="true">
+                                        <Setter Property="BorderBrush"  TargetName="mainBorder" Value="#1E90FF"/>
+                                        <Setter Property="BorderThickness" TargetName="mainBorder" Value="0 0 0 3"/>
+                                    </Trigger>
+
+                                    <Trigger Property="IsSelected" Value="false">
+                                        <Setter Property="BorderThickness" TargetName="mainBorder" Value="0"/>
+                                    </Trigger>
+
+                                    <!--<Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="BorderBrush"  TargetName="mainBorder" Value="#1E90FF"/>
+                                        <Setter Property="BorderThickness" TargetName="mainBorder" Value="0 0 0 0"/>
+                                    </Trigger>-->
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <!--标题头-->
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding HeaderName}" FontSize="14" Margin="0 0 0 0" Style="{StaticResource TabBlockStyle}"  VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+
+                        <materialDesign:PackIcon Kind="Close" Width="15" Height="15" Margin="5 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="Black">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:MainTabControl }},Path=DataContext.ExitCommand,Mode=TwoWay}"  CommandParameter="{Binding}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </materialDesign:PackIcon>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl FocusVisualStyle="{x:Null}" Content="{Binding Body}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</UserControl>

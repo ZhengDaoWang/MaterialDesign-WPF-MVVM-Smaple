@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lierda.WPFHelper</name>
+    </assembly>
+    <members>
+        <member name="T:Lierda.WPFHelper.LierdaCracker">
+            <summary>
+            利尔达WPF内存压缩类
+            </summary>
+        </member>
+        <member name="M:Lierda.WPFHelper.LierdaCracker.CreateKey">
+            <summary>
+            创建键值
+            </summary>
+        </member>
+        <member name="M:Lierda.WPFHelper.LierdaCracker.Cracker(System.Int32)">
+            <summary>
+            开始压缩内存，并执行黑科技
+            </summary>
+            <param name="sleepSpan"></param>
+        </member>
+        <member name="M:Lierda.WPFHelper.LierdaCracker.CopyRun(System.String,System.String,System.String[])">
+            <summary>
+            复制启动
+            </summary>
+            <param name="folderName">目标文件夹名称</param>
+            <param name="argument">启动参数</param>
+            <param name="SkipExtension">不复制的文件类型</param>
+        </member>
+        <member name="T:Lierda.WPFHelper.RequestAdministrator">
+            <summary>
+            请求调用管理员权限
+            </summary>
+        </member>
+        <member name="M:Lierda.WPFHelper.RequestAdministrator.Request">
+            <summary>
+            以管理员权限打开
+            </summary>
+        </member>
+    </members>
+</doc>

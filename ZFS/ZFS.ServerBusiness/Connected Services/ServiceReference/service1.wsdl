@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BaseService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBaseService_GetModelByAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelByAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelByAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelByAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByUser" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByUser" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByUser" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByUser" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByUser" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByUser" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetMenuTrees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuTrees" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetMenuTrees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuTreesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateMenus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenus" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateMenus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroups" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetGroupUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupUsers" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetGroupUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetGroupFuncs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupFuncs" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetGroupFuncs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupFuncsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateGroupFunc_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupFunc" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateGroupFunc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupFuncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_RemovebyGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovebyGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_RemovebyGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovebyGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetDictionarys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDictionarys" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetDictionarys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDictionarysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByDic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByDic" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetModelsByDic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsByDicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByDic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByDic" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByDic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByDicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByDic_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByDic" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByDic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByDicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByDic_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByDic" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByDic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByDicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByDic_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByDic" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByDic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByDicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByDic_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByDic" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByDic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByDicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetUvs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUvs" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetUvs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUvsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetTableStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableStatus" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetTableStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTableStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByDicType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByDicType" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_GetPagingModelsByDicType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagingModelsByDicTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByDicType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByDicType" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_DeleteEntityByDicType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEntityByDicTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByDicType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByDicType" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_UpdateEntityByDicType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEntityByDicTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByDicType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByDicType" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_AddEntityByDicType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEntityByDicTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByDicType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByDicType" />
+  </wsdl:message>
+  <wsdl:message name="IBaseService_ExistEntityByDicType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistEntityByDicTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBaseService">
+    <wsdl:operation name="GetModelByAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetModelByAccount" message="tns:IBaseService_GetModelByAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetModelByAccountResponse" message="tns:IBaseService_GetModelByAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/Logout" message="tns:IBaseService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/LogoutResponse" message="tns:IBaseService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/Login" message="tns:IBaseService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/LoginResponse" message="tns:IBaseService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetAuthority" message="tns:IBaseService_GetAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetAuthorityResponse" message="tns:IBaseService_GetAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetModelsByUser" message="tns:IBaseService_GetModelsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetModelsByUserResponse" message="tns:IBaseService_GetModelsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByUser" message="tns:IBaseService_GetPagingModelsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByUserResponse" message="tns:IBaseService_GetPagingModelsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByUser" message="tns:IBaseService_DeleteEntityByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByUserResponse" message="tns:IBaseService_DeleteEntityByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByUser" message="tns:IBaseService_UpdateEntityByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByUserResponse" message="tns:IBaseService_UpdateEntityByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/AddEntityByUser" message="tns:IBaseService_AddEntityByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/AddEntityByUserResponse" message="tns:IBaseService_AddEntityByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByUser" message="tns:IBaseService_ExistEntityByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByUserResponse" message="tns:IBaseService_ExistEntityByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuTrees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetMenuTrees" message="tns:IBaseService_GetMenuTrees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetMenuTreesResponse" message="tns:IBaseService_GetMenuTrees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateMenus" message="tns:IBaseService_UpdateMenus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateMenusResponse" message="tns:IBaseService_UpdateMenus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetModelsByMenu" message="tns:IBaseService_GetModelsByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetModelsByMenuResponse" message="tns:IBaseService_GetModelsByMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByMenu" message="tns:IBaseService_GetPagingModelsByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByMenuResponse" message="tns:IBaseService_GetPagingModelsByMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByMenu" message="tns:IBaseService_DeleteEntityByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByMenuResponse" message="tns:IBaseService_DeleteEntityByMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByMenu" message="tns:IBaseService_UpdateEntityByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByMenuResponse" message="tns:IBaseService_UpdateEntityByMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/AddEntityByMenu" message="tns:IBaseService_AddEntityByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/AddEntityByMenuResponse" message="tns:IBaseService_AddEntityByMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByMenu" message="tns:IBaseService_ExistEntityByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByMenuResponse" message="tns:IBaseService_ExistEntityByMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetGroups" message="tns:IBaseService_GetGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetGroupsResponse" message="tns:IBaseService_GetGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetGroupUsers" message="tns:IBaseService_GetGroupUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetGroupUsersResponse" message="tns:IBaseService_GetGroupUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupFuncs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetGroupFuncs" message="tns:IBaseService_GetGroupFuncs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetGroupFuncsResponse" message="tns:IBaseService_GetGroupFuncs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroupFunc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateGroupFunc" message="tns:IBaseService_UpdateGroupFunc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateGroupFuncResponse" message="tns:IBaseService_UpdateGroupFunc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovebyGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/RemovebyGroup" message="tns:IBaseService_RemovebyGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/RemovebyGroupResponse" message="tns:IBaseService_RemovebyGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetModelsByGroup" message="tns:IBaseService_GetModelsByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetModelsByGroupResponse" message="tns:IBaseService_GetModelsByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByGroup" message="tns:IBaseService_GetPagingModelsByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByGroupResponse" message="tns:IBaseService_GetPagingModelsByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByGroup" message="tns:IBaseService_DeleteEntityByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByGroupResponse" message="tns:IBaseService_DeleteEntityByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByGroup" message="tns:IBaseService_UpdateEntityByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByGroupResponse" message="tns:IBaseService_UpdateEntityByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/AddEntityByGroup" message="tns:IBaseService_AddEntityByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/AddEntityByGroupResponse" message="tns:IBaseService_AddEntityByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByGroup" message="tns:IBaseService_ExistEntityByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByGroupResponse" message="tns:IBaseService_ExistEntityByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionarys">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetDictionarys" message="tns:IBaseService_GetDictionarys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetDictionarysResponse" message="tns:IBaseService_GetDictionarys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByDic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetModelsByDic" message="tns:IBaseService_GetModelsByDic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetModelsByDicResponse" message="tns:IBaseService_GetModelsByDic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByDic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByDic" message="tns:IBaseService_GetPagingModelsByDic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByDicResponse" message="tns:IBaseService_GetPagingModelsByDic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByDic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByDic" message="tns:IBaseService_DeleteEntityByDic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByDicResponse" message="tns:IBaseService_DeleteEntityByDic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByDic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByDic" message="tns:IBaseService_UpdateEntityByDic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByDicResponse" message="tns:IBaseService_UpdateEntityByDic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByDic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/AddEntityByDic" message="tns:IBaseService_AddEntityByDic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/AddEntityByDicResponse" message="tns:IBaseService_AddEntityByDic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByDic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByDic" message="tns:IBaseService_ExistEntityByDic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByDicResponse" message="tns:IBaseService_ExistEntityByDic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUvs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetUvs" message="tns:IBaseService_GetUvs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetUvsResponse" message="tns:IBaseService_GetUvs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTableStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetTableStatus" message="tns:IBaseService_GetTableStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetTableStatusResponse" message="tns:IBaseService_GetTableStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByDicType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByDicType" message="tns:IBaseService_GetPagingModelsByDicType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/GetPagingModelsByDicTypeResponse" message="tns:IBaseService_GetPagingModelsByDicType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByDicType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByDicType" message="tns:IBaseService_DeleteEntityByDicType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/DeleteEntityByDicTypeResponse" message="tns:IBaseService_DeleteEntityByDicType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByDicType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByDicType" message="tns:IBaseService_UpdateEntityByDicType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/UpdateEntityByDicTypeResponse" message="tns:IBaseService_UpdateEntityByDicType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByDicType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/AddEntityByDicType" message="tns:IBaseService_AddEntityByDicType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/AddEntityByDicTypeResponse" message="tns:IBaseService_AddEntityByDicType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByDicType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByDicType" message="tns:IBaseService_ExistEntityByDicType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseService/ExistEntityByDicTypeResponse" message="tns:IBaseService_ExistEntityByDicType_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBaseService" type="tns:IBaseService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetModelByAccount">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetModelByAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthority">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByUser">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetModelsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByUser">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetPagingModelsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByUser">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/DeleteEntityByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByUser">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/UpdateEntityByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByUser">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/AddEntityByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByUser">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/ExistEntityByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuTrees">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetMenuTrees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenus">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/UpdateMenus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByMenu">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetModelsByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByMenu">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetPagingModelsByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByMenu">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/DeleteEntityByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByMenu">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/UpdateEntityByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByMenu">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/AddEntityByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByMenu">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/ExistEntityByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetGroupUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupFuncs">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetGroupFuncs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroupFunc">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/UpdateGroupFunc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovebyGroup">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/RemovebyGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByGroup">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetModelsByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByGroup">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetPagingModelsByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByGroup">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/DeleteEntityByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByGroup">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/UpdateEntityByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByGroup">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/AddEntityByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByGroup">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/ExistEntityByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionarys">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetDictionarys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelsByDic">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetModelsByDic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByDic">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetPagingModelsByDic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByDic">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/DeleteEntityByDic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByDic">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/UpdateEntityByDic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByDic">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/AddEntityByDic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByDic">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/ExistEntityByDic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUvs">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetUvs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTableStatus">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetTableStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagingModelsByDicType">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/GetPagingModelsByDicType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEntityByDicType">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/DeleteEntityByDicType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEntityByDicType">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/UpdateEntityByDicType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEntityByDicType">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/AddEntityByDicType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistEntityByDicType">
+      <soap:operation soapAction="http://tempuri.org/IBaseService/ExistEntityByDicType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaseService">
+    <wsdl:port name="BasicHttpBinding_IBaseService" binding="tns:BasicHttpBinding_IBaseService">
+      <soap:address location="http://39.108.11.3:1883/Design_Time_Addresses/ZFSLibrary/Service/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

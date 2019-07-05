@@ -1,0 +1,112 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZFSDomain.Common.UserControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" x:Class="ZFSDomain.Common.UserControls.MainNotice"
+             mc:Ignorable="d" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+              xmlns:vc="clr-namespace:ZFSDomain.Common.Converts"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vc:CustomConverter x:Key="vis"/>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="materialDesign:RippleAssist.Feedback" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth1"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="16,4"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <AdornerDecorator CacheMode="{Binding (materialDesign:ShadowAssist.CacheMode), RelativeSource={RelativeSource Self}}">
+                                <Grid>
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2">
+                                        <!--<Border.Effect>
+                                            <Binding Path="(materialDesign:ShadowAssist.ShadowDepth)" RelativeSource="{RelativeSource TemplatedParent}">
+                                                <Binding.Converter>
+                                                    <Converters:ShadowConverter/>
+                                                </Binding.Converter>
+                                            </Binding>
+                                        </Border.Effect>-->
+                                    </Border>
+                                    <Border Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Opacity="0.4">
+                                        <Border.Width>
+                                            <MultiBinding UpdateSourceTrigger="Default">
+                                                <MultiBinding.Converter>
+                                                    <Converters:RangeLengthConverter/>
+                                                </MultiBinding.Converter>
+                                                <Binding Path="(materialDesign:ButtonProgressAssist.Minimum)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                                <Binding Path="(materialDesign:ButtonProgressAssist.Maximum)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                                <Binding Path="(materialDesign:ButtonProgressAssist.Value)" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ButtonBase}}"/>
+                                            </MultiBinding>
+                                        </Border.Width>
+                                    </Border>
+                                </Grid>
+                            </AdornerDecorator>
+                            <materialDesign:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#F4A460"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <ItemsControl  ItemsSource="{Binding NoticeView.NoticeModels}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Name="Node" Style="{DynamicResource ButtonStyle}" Command="{ Binding ApplyCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="{Binding IconName}"
+                                                     Width="20" Height="20" HorizontalAlignment="Center" 
+                                                     Foreground="{Binding ElementName=Node,Path=Foreground}"
+                                                     VerticalAlignment="Center"/>
+                            <!--<TextBlock  Text="{Binding Count,Converter={StaticResource vis}}" FontSize="13"  
+                                        Foreground="{Binding ElementName=Node,Path=Foreground}" 
+                                        VerticalAlignment="Top" HorizontalAlignment="Right"  />-->
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

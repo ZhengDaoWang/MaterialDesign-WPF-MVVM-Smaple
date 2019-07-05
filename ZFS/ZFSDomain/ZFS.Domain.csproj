@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1833563-C0B8-4202-8851-022E704B158F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ZFSDomain</RootNamespace>
+    <AssemblyName>演示客户端</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\App\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\App\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Lierda.WPFHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cbb49eab16984ff2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lierda.WPFHelper.1.0.3\lib\net45\Lierda.WPFHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=1.2.0.21469, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="ShowMeTheXAML, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ShowMeTheXAML.dll</HintPath>
+    </Reference>
+    <Reference Include="ShowMeTheXAML.AvalonEdit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ShowMeTheXAML.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\Converts\CustomConverter.cs" />
+    <Compile Include="Common\Converts\EnumConverter.cs" />
+    <Compile Include="Common\Converts\FlagConverter.cs" />
+    <Compile Include="Common\Converts\NumberConverter.cs" />
+    <Compile Include="Common\Converts\StatusConverter.cs" />
+    <Compile Include="Common\Converts\VisibilityConverter.cs" />
+    <Compile Include="Common\CoreLib\ContextMenuModel.cs" />
+    <Compile Include="Common\Unity\IUnityLocator.cs" />
+    <Compile Include="Common\CoreLib\Loginer.cs" />
+    <Compile Include="Common\CoreLib\Module\MenuManager.cs" />
+    <Compile Include="Common\CoreLib\Module\ModuleComponent.cs" />
+    <Compile Include="Common\CoreLib\Module\ModuleManager.cs" />
+    <Compile Include="Common\CoreLib\Msg.cs" />
+    <Compile Include="Common\CoreLib\Module\GroupCategory.cs" />
+    <Compile Include="Common\UserControls\Chart\DemoChart.xaml.cs">
+      <DependentUpon>DemoChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Chart\MaterialCards.xaml.cs">
+      <DependentUpon>MaterialCards.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Chart\PieChartExample.xaml.cs">
+      <DependentUpon>PieChartExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Chart\StackedAreaExample.xaml.cs">
+      <DependentUpon>StackedAreaExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Common\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Common\DefaultViewPage.xaml.cs">
+      <DependentUpon>DefaultViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Common\MsgBox.xaml.cs">
+      <DependentUpon>MsgBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MainMinLeftMenu.xaml.cs">
+      <DependentUpon>MainMinLeftMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MainUserInfo.xaml.cs">
+      <DependentUpon>MainUserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Metro\UserMetroGrid.xaml.cs">
+      <DependentUpon>UserMetroGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MsgOnLineMenu.xaml.cs">
+      <DependentUpon>MsgOnLineMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDialog\BaseView.cs" />
+    <Compile Include="ViewDialog\BaseViewDialog.cs" />
+    <Compile Include="ViewDialog\Step\MessagesBoxViewDlg.cs" />
+    <Compile Include="ViewDialog\Step\NoticeViewDlg.cs" />
+    <Compile Include="View\Step\HomeAbout.xaml.cs">
+      <DependentUpon>HomeAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Step\MessagesBox.xaml.cs">
+      <DependentUpon>MessagesBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Step\NoticeBox.xaml.cs">
+      <DependentUpon>NoticeBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Common\UcDataPager.xaml.cs">
+      <DependentUpon>UcDataPager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MainLeftMenu.xaml.cs">
+      <DependentUpon>MainLeftMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MainNotice.xaml.cs">
+      <DependentUpon>MainNotice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MainPopupBox.xaml.cs">
+      <DependentUpon>MainPopupBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MainTabControl.xaml.cs">
+      <DependentUpon>MainTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Common\MsgHostBox.xaml.cs">
+      <DependentUpon>MsgHostBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Common\SearchControl.xaml.cs">
+      <DependentUpon>SearchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\MsgLeftChatMenu.xaml.cs">
+      <DependentUpon>MsgLeftChatMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Step\SearchUserWindow.xaml.cs">
+      <DependentUpon>SearchUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Step\SkinWindow.xaml.cs">
+      <DependentUpon>SkinWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\Common\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserControls\UserColorBar.xaml.cs">
+      <DependentUpon>UserColorBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Unity\BootStrapper.cs" />
+    <Compile Include="Common\Unity\ServiceProvider.cs" />
+    <Compile Include="Common\Unity\UnityServiceLocator.cs" />
+    <Compile Include="Common\CoreLib\BaseOperation.cs" />
+    <Compile Include="Common\CoreLib\ToolBarDefault.cs" />
+    <Compile Include="Common\UserControls\UserToolBar.xaml.cs">
+      <DependentUpon>UserToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDialog\Dictionary\DictionaryView.cs" />
+    <Compile Include="ViewDialog\Dictionary\DictionaryViewDlg.cs" />
+    <Compile Include="ViewDialog\Group\GroupView.cs" />
+    <Compile Include="ViewDialog\Group\GroupViewDlg.cs" />
+    <Compile Include="ViewDialog\Menu\MenuView.cs" />
+    <Compile Include="ViewDialog\Menu\MenuViewDlg.cs" />
+    <Compile Include="ViewDialog\Sign\LoginViewDlg.cs" />
+    <Compile Include="ViewDialog\MainViewDlg.cs" />
+    <Compile Include="ViewDialog\Step\MsgBoxViewDlg.cs" />
+    <Compile Include="ViewDialog\Step\SkinViewDlg.cs" />
+    <Compile Include="ViewDialog\User\SearchUserDlg.cs" />
+    <Compile Include="ViewDialog\User\UserView.cs" />
+    <Compile Include="ViewDialog\User\UserViewDlg.cs" />
+    <Compile Include="ViewModel\Dictionary\DictionaryDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dictionary\DictionaryViewModel.cs" />
+    <Compile Include="ViewModel\Group\GroupDialogViewModel.cs" />
+    <Compile Include="ViewModel\Group\GroupViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Menu\MenuDialogViewModel.cs" />
+    <Compile Include="ViewModel\Menu\MenuViewModel.cs" />
+    <Compile Include="ViewModel\Sign\LoginViewModel.cs" />
+    <Compile Include="ViewModel\Step\MessagesBoxViewModel.cs" />
+    <Compile Include="ViewModel\Step\MsgBoxViewModel.cs" />
+    <Compile Include="ViewModel\Step\NoticeViewModel.cs" />
+    <Compile Include="ViewModel\Step\PopBoxViewModel.cs" />
+    <Compile Include="ViewModel\Step\SkinViewModel.cs" />
+    <Compile Include="ViewModel\User\SearchUserViewModel.cs" />
+    <Compile Include="ViewModel\User\UserDialogViewModel.cs" />
+    <Compile Include="ViewModel\User\UserViewModel.cs" />
+    <Compile Include="View\Dictionary\DictionaryView.xaml.cs">
+      <DependentUpon>DictionaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dictionary\DictionaryViewDialog.xaml.cs">
+      <DependentUpon>DictionaryViewDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Group\GroupView.xaml.cs">
+      <DependentUpon>GroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Group\GroupViewDialog.xaml.cs">
+      <DependentUpon>GroupViewDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\MenuViewDialog.xaml.cs">
+      <DependentUpon>MenuViewDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sign\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UserViewDialog.xaml.cs">
+      <DependentUpon>UserViewDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Common\UserControls\Chart\DemoChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Chart\MaterialCards.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Chart\PieChartExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Chart\StackedAreaExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\BorderDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\DefaultViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\ExpanderDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\MsgBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MainMinLeftMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MainUserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Metro\UserMetroGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MsgOnLineMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Step\HomeAbout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Step\MessagesBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Step\NoticeBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\ScrollViewDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\UcDataPager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MainLeftMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MainNotice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MainPopupBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MainTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\MsgHostBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\SearchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\MsgLeftChatMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Step\SearchUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Step\SkinWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\Common\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\UserColorBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Common\UserControls\UserToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dictionary\DictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dictionary\DictionaryViewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Group\GroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Group\GroupViewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Menu\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Menu\MenuViewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sign\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserViewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\Log\" />
+    <Folder Include="View\Log\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZFS.InterfaceLayer\ZFS.ILayer.csproj">
+      <Project>{b9e70180-63d2-411e-b8d0-0dbd80ff85da}</Project>
+      <Name>ZFS.ILayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZFS.Library\ZFS.Library.csproj">
+      <Project>{b604276a-dc78-48a6-aa0c-4fc347b48761}</Project>
+      <Name>ZFS.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZFS.Model\ZFS.Model.csproj">
+      <Project>{b18f2a4e-3a62-45f8-b844-82248a41428c}</Project>
+      <Name>ZFS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZFSBridge\ZFS.Bridge.csproj">
+      <Project>{c09c31d5-1695-4811-9689-3976ca47ea1c}</Project>
+      <Name>ZFS.Bridge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZFSData\ZFS.Data.csproj">
+      <Project>{b92825a0-f3e9-4596-901c-5fab689c3f45}</Project>
+      <Name>ZFS.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Common\Image\SampleOne.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Common\Image\QRCode.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Common\Image\ZFS_32_Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Common\Image\tx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+  </PropertyGroup>
+</Project>

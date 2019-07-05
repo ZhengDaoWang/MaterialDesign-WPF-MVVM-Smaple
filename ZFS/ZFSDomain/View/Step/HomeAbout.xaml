@@ -1,0 +1,45 @@
+﻿<UserControl xmlns:Chart="clr-namespace:ZFSDomain.Common.UserControls.Chart"  x:Class="ZFSDomain.Common.UserControls.Common.HomeAbout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZFSDomain.Common.UserControls.Common"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <Grid  Margin="5"  Background="#EFF2F4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderThickness="0 0 0 1" BorderBrush="#E8E8E8">
+            <TextBlock Text="仪表板" FontSize="35" Foreground="#6C757D" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        </Border>
+     
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Chart:DemoChart Margin="8"  />
+                <Chart:PieChartExample Margin="8" Grid.Column="1"/>
+                <Chart:StackedAreaExample Margin="8" Grid.Row="1"  Grid.ColumnSpan="2" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Chart:MaterialCards />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
